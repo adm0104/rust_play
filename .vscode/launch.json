@@ -7,10 +7,9 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceRoot}/target/debug/dev_container",
-            "args": ["one", "two", "three"],
-            "cwd": "${workspaceRoot}/target/debug/",
+            "name": "Start Server",
+            "program": "${workspaceRoot}/websocket/target/debug/server",
+            "cwd": "${workspaceRoot}/websocket/target/debug/",
             "sourceLanguages": ["rust"]
         }
     ]
