@@ -1,5 +1,6 @@
 use std::io::{self, Read, Write};
 use std::net::{SocketAddr, TcpListener};
+use std::fs;
 
 fn main() -> io::Result<()> {
     // Create a TCP listener
@@ -19,10 +20,23 @@ fn main() -> io::Result<()> {
                 break;
             }
             let message = String::from_utf8_lossy(&buf[..n]);
-            println!("{}", message);
-            stream.write_all(&buf[..n])?;
+            println!("Searching for file: {}", message);
+            let file_found_message: String = search_file_path(message.to_string());
+            stream.write_all(file_found_message.as_bytes())?;
+
         }
     }
 
     Ok(())
+}
+
+fn search_file_path(path: String) -> String {
+    match fs::metadata(path) {
+        Ok(_path) => {
+            return "File found".to_string();
+        }
+        Err(_e) => {
+            return "File not found".to_string();
+        }
+    }
 }
