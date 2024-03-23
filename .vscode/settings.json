@@ -1,5 +1,8 @@
 {
     "rust-analyzer.linkedProjects": [
-        "./websocket/Cargo.toml"
+        "./websocket/Cargo.toml",
+        "./input_args/Cargo.toml",
+        "./oop/Cargo.toml",
+        "./grpc/Cargo.toml"
     ]
 }
