@@ -7,6 +7,13 @@ RUN apt-get update && apt-get install -y \
     vim \
     && rm -rf /var/lib/apt/lists/*
 
+# Install GRPC compiler and dev kit
+RUN apt-get install -y\
+    protobuf-compiler \
+    libprotobuf-dev \
+    libgrpc-dev \
+    
+
 # Install Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
