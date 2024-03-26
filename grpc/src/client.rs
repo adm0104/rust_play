@@ -7,8 +7,7 @@ pub mod greeting {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut client = GreetingServiceClient::connect("127.0.0.1:8080").await?;
-
+    let mut client = GreetingServiceClient::connect("http://127.0.0.1:8080").await?;
     let request = tonic::Request::new(HelloRequest {
         name: "Alice".into(),
     });
